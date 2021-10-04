@@ -47,7 +47,7 @@ export default class introScreen extends Component {
       <AppRoot>
         <LinearGradient
           start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-          colors={[Colors.themePurple, Colors.themePurple]}
+          colors={[Colors.white, Colors.white]}
           style={[c.mainContainer,{paddingTop:50}]}>
           <Shape text={Strings.fpwd} />
           <View style={{width:Screen.wp('100%'),justifyContent:'flex-start',alignItems:'flex-start',paddingHorizontal:Screen.wp('5%'),paddingTop:Screen.hp('2%')}}>
@@ -72,8 +72,8 @@ export default class introScreen extends Component {
           <View>
           <Button
                 text={Strings.hip}
-                // visible={false}
-                containerStyle={[c.Button,{marginBottom:Screen.hp(10)}]}
+                visible={false}
+                containerStyle={[c.Button]}
                 onPress={() => {navigation.navigate('hipScreen')}} />
                 </View>
         </LinearGradient>

@@ -83,9 +83,9 @@ class Splash extends Component {
     return (
       <LinearGradient
         start={{ x: 0, y: 0}} end={{ x: 0.7, y: 1}}
-        colors={[Colors.themePurple,Colors.themePurple]}
+        colors={[Colors.white,Colors.white]}
         style={styles.container}>
-        <StatusBar barStyle='light-content' hidden={false} backgroundColor={Colors.themePurple} />
+        <StatusBar barStyle='dark-content' hidden={false} backgroundColor={Colors.white} />
         <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
         <Image
           resizeMode={'contain'}

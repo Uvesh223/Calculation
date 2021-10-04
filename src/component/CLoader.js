@@ -18,7 +18,7 @@ export class CLoader extends Component {
       <View style={[styles.mainConSty, otherTheme]}>
         <ActivityIndicator
           size={size || 'large'}
-          color={color || BaseColor.themePurple}
+          color={color || BaseColor.white}
           animating
         />
       </View>

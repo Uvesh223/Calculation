@@ -68,11 +68,12 @@ export default class aboutScreen extends Component {
         />
         <LinearGradient
           start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-          colors={[Colors.themePurple, Colors.themePurple]}
-          style={[c.mainContainer,]}>
+          colors={[Colors.white, Colors.white]}
+          style={[c.mainContainer]}>
           <ScrollView
-         style={{ flex: 1,marginBottom:30, height: Screen.hp("100%"),
+         style={{ flex: 1,height: Screen.hp("100%"),
          width: Screen.wp("100%"),paddingHorizontal:Screen.wp('5%')}}>
+           <View style={{marginBottom:30}}>
           <View style={{paddingVertical:40}}>
             <Image
               resizeMode={'cover'}
@@ -89,6 +90,7 @@ export default class aboutScreen extends Component {
             <Text style={c.normalText}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Text>
           </View>
           <View>
+          </View>
           </View>
           </ScrollView>
         </LinearGradient>

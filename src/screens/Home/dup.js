@@ -177,6 +177,7 @@ export default class hipScreen extends Component {
   }
   componentDidMount() {
     Screen.OrientationChange(this);
+    // this.dataloop()
   }
 
   componentWillUnmount() {
@@ -362,7 +363,8 @@ render() {
               <View>
                 <Text style={c.normalText}>Measurements below are center of overlap and underlap (sheet cover width apart)</Text>
               </View>
-              {/* {this.state.numOfsheets.map((item)=>{
+              {this.state.numOfsheets.map((item)=>{
+                console.log('item=>',item)
    let text2 = this.state.pitchInput;
    let picth = Math.cos(text2 * Math.PI / 180);
    let diff = this.state.coverInput / picth;
@@ -377,24 +379,71 @@ render() {
    let sheet8end = +sheet7end + +diff.toFixed();
    let sheet9end = +sheet8end + +diff.toFixed();
    let sheet10end = +sheet9end + +diff.toFixed();
-return(
-  <View style={c.mainSheetView}>
-  <View>
-    <Text style={c.normalText}>Sheet {item.id}</Text>
-  </View>
-  <View style={c.sheetBox}>
-    <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.start+ +fl}</Text>
-  </View>
-  <View style={c.sheetBox}>
-    <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.end + fl + +diff.toFixed()}</Text>
-  </View>
-</View>
-)
-})} */}
+   if(item.id==1){
+     item.start=this.state.firstLInput;
+     item.end=+item.start + +diff.toFixed();
+   }
+   if(item.id==2){
+    item.start=this.state.numOfsheets[0].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+  if(item.id==3){
+    item.start=this.state.numOfsheets[1].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+  if(item.id==4){
+    item.start=this.state.numOfsheets[2].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+  if(item.id==5){
+    item.start=this.state.numOfsheets[3].end;
+    item.end=+item.start + +diff.toFixed();
+  } if(item.id==6){
+    item.start=this.state.numOfsheets[4].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+  if(item.id==7){
+    item.start=this.state.numOfsheets[5].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+  if(item.id==8){
+    item.start=this.state.numOfsheets[6].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+   if(item.id==9){
+    item.start=this.state.numOfsheets[7].end;
+    item.end=+item.start + +diff.toFixed();
+  } if(item.id==10){
+    item.start=this.state.numOfsheets[8].end;
+    item.end=+item.start + +diff.toFixed();
+  }
+
+
+//   //Find index of specific object using findIndex method.    
+//   objIndex = this.state.numOfsheets.findIndex((obj => obj.id.map((item)=>{
+//     console.log("i",item)
+//   })));
+//   //Update object's name property.
+// this.state.numOfsheets[objIndex].start = this.state.firstLInput;
+// this.state.numOfsheets[objIndex].end = this.state.sheet1End;
+// return(
+//   <View style={c.mainSheetView}>
+//   <View>
+//     <Text style={c.normalText}>Sheet {item.id}</Text>
+//   </View>
+//   <View style={c.sheetBox}>
+//     <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.start}</Text>
+//   </View>
+//   <View style={c.sheetBox}>
+//     <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.end}</Text>
+//   </View>
+// </View>
+// )
+// })}
               
-              <View style={c.mainSheetView}>
+              {/* <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 1</Text>
+                  <Text style={c.normalText}>Sheet 01</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet1Start}</Text>
@@ -405,7 +454,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 2</Text>
+                  <Text style={c.normalText}>Sheet 02</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet2Start}</Text>
@@ -417,7 +466,7 @@ return(
 
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 3</Text>
+                  <Text style={c.normalText}>Sheet 03</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet3Start}</Text>
@@ -428,7 +477,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 4</Text>
+                  <Text style={c.normalText}>Sheet 04</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet4Start}</Text>
@@ -439,7 +488,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 5</Text>
+                  <Text style={c.normalText}>Sheet 05</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet5Start}</Text>
@@ -450,7 +499,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 6</Text>
+                  <Text style={c.normalText}>Sheet 06</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet6Start}</Text>
@@ -461,7 +510,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 7</Text>
+                  <Text style={c.normalText}>Sheet 07</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet7Start}</Text>
@@ -472,7 +521,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 8</Text>
+                  <Text style={c.normalText}>Sheet 08</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet8Start}</Text>
@@ -483,7 +532,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 9</Text>
+                  <Text style={c.normalText}>Sheet 09</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet9Start}</Text>
@@ -494,7 +543,7 @@ return(
               </View>
               <View style={c.mainSheetView}>
                 <View>
-                  <Text style={c.normalText}>Sheet 10</Text>
+                  <Text style={[c.normalText]}>Sheet 10</Text>
                 </View>
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet10Start}</Text>
@@ -502,7 +551,7 @@ return(
                 <View style={c.sheetBox}>
                   <Text style={[c.normalText, { paddingVertical: 5 }]}>{this.state.sheet10End}</Text>
                 </View>
-              </View>
+              </View> */}
             </View>
             </View> 
         </ScrollView>
@@ -517,11 +566,23 @@ return(
      ? this.setState({active:true})
      : this.setState({active:false})
  };
+//  dataloop = () =>{
+//   var myArray = [];
+//   let text2 = this.state.pitchInput;
+//   let fl = this.state.firstLInput;
+//   let picth = Math.cos(text2 * Math.PI / 180);
+//   let diff = this.state.coverInput / picth;
+//   for (let i = 0; i < this.state.numOfsheets.length; i++) {
+//     myArray.push(i);
+//     console.log("numof sheets start==>",this.state.numOfsheets[i].start+fl);
+//   }
+//   console.log("myArray=>",myArray)
+//   }
   picthAscending = () => {
     let text2 = this.state.pitchInput;
+    let fl = +this.state.firstLInput;
     let picth = Math.cos(text2 * Math.PI / 180);
     let diff = this.state.coverInput / picth;
-    let fl = +this.state.firstLInput;
     let sheet1end = +fl + +diff.toFixed();
     let sheet2end = +sheet1end + +diff.toFixed();
     let sheet3end = +sheet2end + +diff.toFixed();

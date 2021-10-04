@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   defaultIconSty: {
     fontSize: 30,
-    color: Colors.whiteColor,
+    color: Colors.medium_gray,
   },
 });
 
@@ -91,7 +91,7 @@ export default class CHeader extends Component {
         <View
           style={{
             width: '100%',
-            backgroundColor: Colors.lightPurple,
+            backgroundColor: Colors.whiteColor,
             height: 55,
             paddingLeft: 15,
             flexDirection: 'row',
@@ -186,13 +186,13 @@ export default class CHeader extends Component {
               {loader ? (
                 <ActivityIndicator
                   size="small"
-                  color={Colors.themePurple}
+                  color={Colors.white}
                   animating
                 />
               ) : (
                 <MICon
                   name="search"
-                  style={{fontSize: 30, color: Colors.themePurple}}
+                  style={{fontSize: 30, color: Colors.white}}
                 />
               )}
             </View>
@@ -205,7 +205,7 @@ export default class CHeader extends Component {
       // <View style={[styles.mainCon, otherCon]}>
       <LinearGradient
         start={{ x: 0, y: 0}} end={{ x: 1, y: 0}}
-        colors={[Colors.themeGreen,Colors.themeGreen]}
+        colors={[Colors.whiteColor,Colors.whiteColor]}
         style={[styles.mainCon, otherCon]}>
         {leftIcon ? (
           <TouchableOpacity
@@ -249,7 +249,7 @@ export default class CHeader extends Component {
               />
             </View>
            : null}
-          <CText title3 whiteColor numberOfLines={1} style={textStyle}>
+          <CText title3 blackColor numberOfLines={1} style={textStyle}>
             {title}
           </CText>
         </View>

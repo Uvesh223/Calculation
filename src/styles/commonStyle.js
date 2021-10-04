@@ -7,54 +7,55 @@ const commonStyle = StyleSheet.create({
     height: Screen.hp("100%"),
     width: Screen.wp("100%"),
     alignItems: "center",
+    justifyContent:'center'
     // paddingHorizontal:10,
+  },
+  mainView: {
+  marginBottom:30,
+  paddingHorizontal:Screen.wp('3%')
+  // paddingHorizontal:10,
   },
   normalText: {
     fontSize: 16,
     fontFamily: Fonts.SemiBold,
-    color: Colors.whiteColor,
+    color: Colors.blackColor,
     // textAlign: 'center',
     paddingVertical: 10,
   },
   headerText: {
     fontSize: 18,
-    fontFamily: Fonts.SemiBold,
-    color: Colors.whiteColor,
+    fontFamily: Fonts.Bold,
+    color: Colors.blackColor,
     // textAlign: 'center',
     paddingTop: 10,
   },
   btnView: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: Screen.wp('70%')
+    justifyContent: 'space-around',
+    // width: Screen.wp('70%')
   },
   aesbtn: {
-    width: Screen.wp('25%'),
+    // width: Screen.wp('25%'),
   },
   mainCalView: {
     flexDirection: 'row',
-    width: Screen.wp('100%'),
-    justifyContent: 'space-between',
-    paddingHorizontal: Screen.hp('1%'),
-    // paddingHorizontal: Screen.hp('4%'),
-
-
+    justifyContent: 'space-around',
   },
   calView: {
     flexDirection: 'row', 
-    justifyContent: 'space-between',
-    width: Screen.wp('45%'), 
+    justifyContent: 'space-around',
     borderWidth: 1,
+    borderColor:Colors.blueC,
     borderRadius: 8,
     alignItems: 'center',
-    paddingHorizontal: Screen.hp('0.5'),
+    paddingHorizontal: Screen.hp('1'),
     paddingVertical: Screen.hp('1'),
   },
   circle: {
     width: 40, 
     height: 40, 
     borderRadius: 25, 
-    backgroundColor: Colors.cool_gray,
+    backgroundColor: Colors.light_gray,
     alignItems: 'center', 
     justifyContent: 'center' 
     },
@@ -69,6 +70,7 @@ sheetBox:{
     justifyContent: 'center',
     width: Screen.wp('25%'), 
     borderWidth: 1,
+    borderColor:Colors.blueC,
     borderRadius: 8,
     alignItems: 'center',
     paddingHorizontal: Screen.hp('2%'),
@@ -76,8 +78,9 @@ sheetBox:{
   },
   input: {
     height: 40,
-    color:Colors.whiteColor,
+    color:Colors.blackColor,
     borderWidth: 1,
+    borderColor:Colors.blueC,
     padding: 10,
   },
 
@@ -227,6 +230,15 @@ sheetBox:{
   },
   Button: {
     // marginHorizontal: Screen.hp("6%"),
+    borderRadius: Screen.hp("3%"),
+    marginVertical: Screen.hp("2%"),
+    paddingVertical: Screen.hp("2%"),
+    justifyContent: "center",
+    alignItems: "center",
+    width: Screen.wp('50%'),
+    backgroundColor:Colors.blueC,
+  },
+  touchBtn:{
     borderRadius: Screen.hp("3%"),
     marginVertical: Screen.hp("2%"),
     paddingVertical: Screen.hp("2%"),

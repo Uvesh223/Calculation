@@ -21,9 +21,10 @@ const pageStyle = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2.0,
     elevation: 2,
-    backgroundColor: Colors.icons,
+    // backgroundColor: Colors.icons,
     alignItems: "center",
     padding: Screen.hp("2%"),
+    backgroundColor:Colors.blueC,
   },
   textBtn: {
     fontFamily: Fonts.SemiBold,
@@ -41,10 +42,7 @@ class Button extends PureComponent<props> {
         activeOpacity={visible ? 1 : 0.6}
         onPress={visible ? null : onPress}
       >
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          colors={[Colors.blueC,Colors.blueC]}
+        <View
           style={(pageStyle.containerStyle, containerStyle)}
         >
           {visible ? (
@@ -52,7 +50,7 @@ class Button extends PureComponent<props> {
           ) : (
             <Text style={pageStyle.textBtn}>{text}</Text>
           )}
-        </LinearGradient>
+        </View>
       </TouchableOpacity>
     );
   }

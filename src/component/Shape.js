@@ -7,7 +7,7 @@ export default function Shape({text}) {
     return (
         <LinearGradient
         start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-          colors={[Colors.themePurple,Colors.themePurple]}
+          colors={[Colors.white,Colors.white]}
         style={c.Lshape}>
             <Image
              resizeMode={'cover'}

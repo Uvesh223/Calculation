@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: Screen.wp(2),
         alignSelf: 'center',
         height: Screen.hp(20),
-        backgroundColor: Colors.themePurple
+        backgroundColor: Colors.white
     },
 })
 class Sidebar extends Component {

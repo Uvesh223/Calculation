@@ -10,7 +10,7 @@ export default class AppRoot extends PureComponent {
   render() {
     return (
       <View style={{flex:1}}>
-        <StatusBar barStyle='light-content' hidden={false} backgroundColor={Colors.themePurple} />
+        <StatusBar barStyle='dark-content' hidden={false} backgroundColor={Colors.white} />
         <SafeAreaView style={styles.container}>
           {this.props.children}
         </SafeAreaView>
