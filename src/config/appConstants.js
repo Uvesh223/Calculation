@@ -161,6 +161,9 @@ const Strings = {
   hip:'Hip/Valley Cut',
   asc:'Ascending',
   dsc:'Descending',
+  more:'Load More',
+  less:'Show Less',
+
 
 
 }

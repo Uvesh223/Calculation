@@ -29,6 +29,7 @@ import {
 import { Helper, PrefManager } from '../../utils'
 import c from "../../styles/commonStyle";
 
+var myArray = [];
 export default class hipScreen extends Component {
   constructor(props) {
     super(props);
@@ -108,57 +109,7 @@ export default class hipScreen extends Component {
         start: 0,
         end: 0,
       },
-      {
-        id: 1,
-        start:0,
-        end: 0,
-      },
-      {
-        id: 2,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 3,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 4,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 5,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 6,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 7,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 8,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 9,
-        start: 0,
-        end: 0,
-      },
-      {
-        id: 10,
-        start: 0,
-        end: 0,
-      },
-  ],
+     ],
       lock: true,
       activeD:false,
       activeA:true,
@@ -186,7 +137,7 @@ export default class hipScreen extends Component {
 
 render() {
  const { navigation } = this.props;
-
+const {numOfsheets} = this.state;
     return (
       <AppRoot>
           <LinearGradient
@@ -230,25 +181,9 @@ render() {
                 text={Strings.dsc}
                 visible={false}
                 containerStyle={[c.Button, { width: Screen.wp('32.5%'), }]}
-                onPress={() => { this.picthDescending() }} />
-            </View>
-
-
-  {/* <View style={c.btnView}>
-{this.state.cData.map((item) => {
-  return (
-    <Button
-    text={item.text}
-    // visible={false}
-    containerStyle={[c.Button, { width: Screen.wp('32.5%'), }]}
-    onPress={() => {item.id === 1 ? this.picthAscending() :item.id === 2?this.picthDescending():null 
-      this.setState({default:item})
-    }} />
-            );
-          }
-          )}
-          </View> */}
-        
+                // onPress={() => { this.picthDescending() }} />
+                onPress={() => { this.dataloop() }} />
+                </View>
             <View style={c.mainCalView}>
               <View>
                 <Text style={c.normalText}>Sheet Cover (mm)</Text>
@@ -363,8 +298,8 @@ render() {
               <View>
                 <Text style={c.normalText}>Measurements below are center of overlap and underlap (sheet cover width apart)</Text>
               </View>
-              {this.state.numOfsheets.map((item)=>{
-                console.log('item=>',item)
+               {numOfsheets.map((item)=>{
+                // console.log('item=>',item)
    let text2 = this.state.pitchInput;
    let picth = Math.cos(text2 * Math.PI / 180);
    let diff = this.state.coverInput / picth;
@@ -379,67 +314,67 @@ render() {
    let sheet8end = +sheet7end + +diff.toFixed();
    let sheet9end = +sheet8end + +diff.toFixed();
    let sheet10end = +sheet9end + +diff.toFixed();
-   if(item.id==1){
-     item.start=this.state.firstLInput;
-     item.end=+item.start + +diff.toFixed();
-   }
-   if(item.id==2){
-    item.start=this.state.numOfsheets[0].end;
-    item.end=+item.start + +diff.toFixed();
-  }
-  if(item.id==3){
-    item.start=this.state.numOfsheets[1].end;
-    item.end=+item.start + +diff.toFixed();
-  }
-  if(item.id==4){
-    item.start=this.state.numOfsheets[2].end;
-    item.end=+item.start + +diff.toFixed();
-  }
-  if(item.id==5){
-    item.start=this.state.numOfsheets[3].end;
-    item.end=+item.start + +diff.toFixed();
-  } if(item.id==6){
-    item.start=this.state.numOfsheets[4].end;
-    item.end=+item.start + +diff.toFixed();
-  }
-  if(item.id==7){
-    item.start=this.state.numOfsheets[5].end;
-    item.end=+item.start + +diff.toFixed();
-  }
-  if(item.id==8){
-    item.start=this.state.numOfsheets[6].end;
-    item.end=+item.start + +diff.toFixed();
-  }
-   if(item.id==9){
-    item.start=this.state.numOfsheets[7].end;
-    item.end=+item.start + +diff.toFixed();
-  } if(item.id==10){
-    item.start=this.state.numOfsheets[8].end;
-    item.end=+item.start + +diff.toFixed();
-  }
+  //  if(item.id==1){
+  //    item.start=this.state.firstLInput;
+  //    item.end=+item.start + +diff.toFixed();
+  //  }
+  //  if(item.id==2){
+  //   item.start=this.state.numOfsheets[0].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // }
+  // if(item.id==3){
+  //   item.start=this.state.numOfsheets[1].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // }
+  // if(item.id==4){
+  //   item.start=this.state.numOfsheets[2].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // }
+  // if(item.id==5){
+  //   item.start=this.state.numOfsheets[3].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // } if(item.id==6){
+  //   item.start=this.state.numOfsheets[4].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // }
+  // if(item.id==7){
+  //   item.start=this.state.numOfsheets[5].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // }
+  // if(item.id==8){
+  //   item.start=this.state.numOfsheets[6].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // }
+  //  if(item.id==9){
+  //   item.start=this.state.numOfsheets[7].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // } if(item.id==10){
+  //   item.start=this.state.numOfsheets[8].end;
+  //   item.end=+item.start + +diff.toFixed();
+  // } */}
 
-
-//   //Find index of specific object using findIndex method.    
+{/* //   //Find index of specific object using findIndex method.    
 //   objIndex = this.state.numOfsheets.findIndex((obj => obj.id.map((item)=>{
 //     console.log("i",item)
 //   })));
 //   //Update object's name property.
 // this.state.numOfsheets[objIndex].start = this.state.firstLInput;
-// this.state.numOfsheets[objIndex].end = this.state.sheet1End;
-// return(
-//   <View style={c.mainSheetView}>
-//   <View>
-//     <Text style={c.normalText}>Sheet {item.id}</Text>
-//   </View>
-//   <View style={c.sheetBox}>
-//     <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.start}</Text>
-//   </View>
-//   <View style={c.sheetBox}>
-//     <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.end}</Text>
-//   </View>
-// </View>
-// )
-// })}
+// this.state.numOfsheets[objIndex].end = this.state.sheet1End; */}
+
+return(
+  <View style={c.mainSheetView}>
+  <View>
+    <Text style={c.normalText}>Sheet {item.id}</Text>
+  </View>
+  <View style={c.sheetBox}>
+    <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.start}</Text>
+  </View>
+  <View style={c.sheetBox}>
+    <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.end}</Text>
+  </View>
+</View>
+)
+})}
               
               {/* <View style={c.mainSheetView}>
                 <View>
@@ -558,7 +493,6 @@ render() {
           </LinearGradient>
       </AppRoot>
     )
-
   }
   setDefault = (item) => {
    console.log('item.id ===> ', item.id);
@@ -566,18 +500,19 @@ render() {
      ? this.setState({active:true})
      : this.setState({active:false})
  };
-//  dataloop = () =>{
-//   var myArray = [];
-//   let text2 = this.state.pitchInput;
-//   let fl = this.state.firstLInput;
-//   let picth = Math.cos(text2 * Math.PI / 180);
-//   let diff = this.state.coverInput / picth;
-//   for (let i = 0; i < this.state.numOfsheets.length; i++) {
-//     myArray.push(i);
-//     console.log("numof sheets start==>",this.state.numOfsheets[i].start+fl);
-//   }
-//   console.log("myArray=>",myArray)
-//   }
+ dataloop = () =>{
+   const {numOfsheets} = this.state;
+  let text2 = this.state.pitchInput;
+  let fl = this.state.firstLInput;
+  let picth = Math.cos(text2 * Math.PI / 180);
+  let diff = this.state.coverInput / picth;
+  for (let i = 0; i < numOfsheets.length; i+=diff) {
+    let start=(numOfsheets[i].start+fl);
+    let end=(numOfsheets[i].start+diff);
+    // numOfsheets.push(end);
+  }
+  console.log("numOfsheets=>",numOfsheets)
+  }
   picthAscending = () => {
     let text2 = this.state.pitchInput;
     let fl = +this.state.firstLInput;

@@ -11,7 +11,8 @@ const commonStyle = StyleSheet.create({
     // paddingHorizontal:10,
   },
   mainView: {
-  marginBottom:30,
+  width:Screen.wp('100%'),
+  marginBottom:10,
   paddingHorizontal:Screen.wp('3%')
   // paddingHorizontal:10,
   },

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
-import {BaseColor} from '../../app/config';
+import {BaseColor,Colors} from '../config/appConstants';
 
 const styles = StyleSheet.create({
   mainConSty: {
@@ -18,7 +18,7 @@ export class CLoader extends Component {
       <View style={[styles.mainConSty, otherTheme]}>
         <ActivityIndicator
           size={size || 'large'}
-          color={color || BaseColor.white}
+          color={color || Colors.blueC }
           animating
         />
       </View>
