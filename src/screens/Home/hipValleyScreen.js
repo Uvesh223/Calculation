@@ -160,14 +160,14 @@ export default class hipScreen extends Component {
                   containerStyle={[c.Button, {
                     width: Screen.wp('35%'), backgroundColor: Colors.blueC, paddingVertical: Screen.hp('2%'),
                   }]}
-                  onPress={() => { this.picthAscending() }} />
+                  onPress={() => this.picthAscehnding()} />
                 <Button
                  textBtn={{fontSize: Dimens.textSizeSmall,color: Colors.white,
                  }}
                   text={Strings.dsc}
                   visible={false}
                   containerStyle={[c.Button, { width: Screen.wp('35%'), paddingVertical: Screen.hp('2%') }]}
-                  onPress={() => { this.picthDescending() }} />
+                  onPress={() =>  this.picthDescending()} />
               </View>
 
               <View>
@@ -214,7 +214,7 @@ export default class hipScreen extends Component {
                         this.isCover = input;
                       }}
                       onChangeText={(text) => this.setState({ coverInput: (text) }, () => {
-                        this.picthAscending()
+                        this.picthAscehnding()
                       }
                       )}
                       editable={this.state.lock ? true : false}
@@ -246,7 +246,7 @@ export default class hipScreen extends Component {
                       keyboardType={"number-pad"}
                       editable={this.state.lock ? true : false}
                       onChangeText={(text) => this.setState({ pitchInput: (text) }, () => {
-                        this.picthAscending()
+                        this.picthAscehnding()
                       })}
                       ref={input => {
                         this.isPitch = input;
@@ -285,7 +285,7 @@ export default class hipScreen extends Component {
                       keyboardType={"number-pad"}
                       editable={this.state.lock ? true : false}
                       onChangeText={(text) => this.setState({ firstLInput: (text) }, () => {
-                        this.picthAscending()
+                        this.picthAscehnding()
                       })}
                       placeholder="Enter First Length"
                       placeholderTextColor='#000'
@@ -403,7 +403,7 @@ export default class hipScreen extends Component {
                           <TouchableOpacity onPress={(id) => {
                             console.log("item=>", item)
                             item.checked = !item.checked
-                            this.picthAscending()
+                            this.picthAscehnding()
                             console.log("checked=>", item.checked)
                           }}>
                             <Icon name={item.checked ? "check-square" : item.icon} size={25} color={item.checked ? Colors.green : Colors.grayPrimaryColor} />
@@ -477,7 +477,7 @@ export default class hipScreen extends Component {
                           <TouchableOpacity onPress={(id) => {
                             console.log("item=>", item)
                             item.checked = !item.checked
-                            this.picthAscending()
+                            this.picthAscehnding()
                             console.log("checked=>", item.checked)
                           }}>
                             <Icon name={item.checked ? "check-square" : item.icon} size={25} color={item.checked ? Colors.green : Colors.grayPrimaryColor} />
@@ -526,7 +526,7 @@ export default class hipScreen extends Component {
       : this.setState({ active: false })
   };
   picthAscehnding = () => {
-    let text2 = tis.state.pitchInput;
+    let text2 = this.state.pitchInput;
     let fl = +this.state.firstLInput;
     let picth = Math.cos(text2 * Math.PI / 180);
     let diff = this.state.coverInput / picth;
@@ -711,31 +711,31 @@ export default class hipScreen extends Component {
   incrementC = () => {
     let count = +this.state.coverInput + 1;
     this.setState({ coverInput: count.toString() })
-    this.picthAscending()
+    this.picthAscehnding()
   }
   decrementC = () => {
     let count = this.state.coverInput - 1;
     this.setState({ coverInput: count.toString() })
-    this.picthAscending()
+    this.picthAscehnding()
   }
   incrementP = () => {
     let count = +this.state.pitchInput + 1;
     this.setState({ pitchInput: count.toString() })
-    this.picthAscending()
+    this.picthAscehnding()
   }
   decrementP = () => {
     let count = this.state.pitchInput - 1;
     this.setState({ pitchInput: count.toString() })
-    this.picthAscending()
+    this.picthAscehnding()
   }
   incrementL = () => {
     let count = +this.state.firstLInput + 1;
     this.setState({ firstLInput: count.toString() })
-    this.picthAscending()
+    this.picthAscehnding()
   }
   decrementL = () => {
     let count = this.state.firstLInput - 1;
     this.setState({ firstLInput: count.toString() })
-    this.picthAscending()
+    this.picthAscehnding()
   }
 }
