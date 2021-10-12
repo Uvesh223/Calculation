@@ -89,7 +89,7 @@ class Splash extends Component {
         <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
         <Image
           resizeMode={'contain'}
-          source={ImageView.logo}
+          source={ImageView.hipValley}
           style={styles.imgStyle} />
         <Modal
           ref={"updateModal"}

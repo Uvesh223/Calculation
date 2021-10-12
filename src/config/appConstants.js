@@ -104,11 +104,10 @@ const Fonts = {
 
 const ImageView = {
   logo:require('../assets/doctor.png'),
+  sheet:require('../assets/sheet.png'),
   home:require('../assets/home.png'),
-  facebook:require('../assets/facebook.png'),
-  google:require('../assets/google.png'),
-  srl:require('../assets/srl.png'),
-  profile:require('../assets/profile.jpeg'),
+  hipValley:require('../assets/HipVally.png'),
+
 
 }
 const DrawerIcon = {
@@ -163,6 +162,8 @@ const Strings = {
   dsc:'Descending',
   more:'Load More',
   less:'Show Less',
+  cal:'Calculate',
+
 
 
 
@@ -265,5 +266,166 @@ export const Typography = StyleSheet.create({
     fontFamily: FontFamily.regular,
   },
 });
+const numOfsheets= [
+  {
+    id: 1,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+  },
+  {
+    id: 2,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
 
-export { Constants, Colors, Dimens, Screen, Fonts, ImageView, Strings, DrawerIcon, };
+  },
+  {
+    id: 3,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 4,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 5,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 6,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 7,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 8,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 9,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 10,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 11,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 12,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 13,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 14,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 15,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 16,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 17,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 18,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 19,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+  {
+    id: 20,
+    start: 0,
+    end: 0,
+    icon: 'square',
+    checked: false,
+
+  },
+]
+
+export { Constants, Colors, Dimens, Screen, Fonts, ImageView, Strings, DrawerIcon,numOfsheets };

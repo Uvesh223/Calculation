@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   defaultIconSty: {
     fontSize: 30,
-    color: Colors.medium_gray,
+    color: Colors.grayPrimaryColor,
   },
 });
 

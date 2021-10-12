@@ -21,8 +21,8 @@ export default function DrawerScreen() {
             }} initialRouteName="introScreen" drawerContent={(props) => <Sidebar {...props} />}>
             <Drawer.Screen name={'introScreen'} component={introScreen} />
             <Drawer.Screen name={'hipScreen'} component={hipScreen} />
+            <Drawer.Screen name={'riseScreen'} component={riseScreen} />
             <Drawer.Screen name={'aboutScreen'} component={aboutScreen} />
-            {/* <Drawer.Screen name={'riseScreen'} component={riseScreen} /> */}
         </Drawer.Navigator>
     );
 }

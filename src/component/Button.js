@@ -27,15 +27,15 @@ const pageStyle = StyleSheet.create({
     backgroundColor:Colors.blueC,
   },
   textBtn: {
-    fontFamily: Fonts.SemiBold,
-    fontSize: Dimens.textSizeSmall,
+    fontFamily: Fonts.Bold,
+    fontSize: Dimens.textSizeMedium,
     color: Colors.white,
   },
 });
 
 class Button extends PureComponent<props> {
   render() {
-    const { onPress, text, containerStyle, String, visible } = this.props;
+    const { onPress, text, containerStyle, String, visible,textBtn } = this.props;
     return (
       <TouchableOpacity
         style={{}}
@@ -48,7 +48,7 @@ class Button extends PureComponent<props> {
           {visible ? (
             <ActivityIndicator size="small" color={"white"} />
           ) : (
-            <Text style={pageStyle.textBtn}>{text}</Text>
+            <Text style={pageStyle.textBtn,textBtn}>{text}</Text>
           )}
         </View>
       </TouchableOpacity>
@@ -58,12 +58,14 @@ class Button extends PureComponent<props> {
 
 Button.propTypes = {
   containerStyle: PropTypes.any,
+  textBtn: PropTypes.any,
   onPress: PropTypes.func,
   String: PropTypes.any,
 };
 
 Button.defaultProps = {
   containerStyle: pageStyle.containerStyle,
+  textBtn:pageStyle.textBtn,
 };
 
 export default Button;

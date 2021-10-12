@@ -10,9 +10,9 @@ export default function Shape({text}) {
           colors={[Colors.white,Colors.white]}
         style={c.Lshape}>
             <Image
-             resizeMode={'cover'}
-             source={ImageView.logo} 
-             style={{height: Screen.hp('35%'), alignSelf: 'center', width: Screen.wp('70%')}} />   
+             resizeMode={'contain'}
+             source={ImageView.sheet} 
+             style={{height: Screen.hp('45%'), alignSelf: 'center', width: Screen.wp('90%')}} />   
         </LinearGradient>
     )
 }

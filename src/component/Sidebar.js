@@ -243,13 +243,13 @@ const dataSource = [
         navigation: 'hipScreen',
         v: false
     },
-    // {
-    //     id: '2',
-    //     name: 'Rise and Run calculator',
-    //     icon: DrawerIcon.calendar,
-    //     navigation: 'riseScreen',
-    //     v: false
-    // },
+    {
+        id: '2',
+        name: 'Rise and Run calculator',
+        icon: DrawerIcon.calendar,
+        navigation: 'riseScreen',
+        v: false
+    },
     {
         id: '2',
         name: 'About',

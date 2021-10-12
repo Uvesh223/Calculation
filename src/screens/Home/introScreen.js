@@ -48,8 +48,8 @@ export default class introScreen extends Component {
         <LinearGradient
           start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
           colors={[Colors.white, Colors.white]}
-          style={[c.mainContainer,{paddingTop:50}]}>
-          <Shape text={Strings.fpwd} />
+          style={[c.mainContainer,{paddingTop:20}]}>
+          <Shape/>
           <View style={{width:Screen.wp('100%'),justifyContent:'flex-start',alignItems:'flex-start',paddingHorizontal:Screen.wp('5%'),paddingTop:Screen.hp('2%')}}>
           <View>
             <Text style={c.normalText}>This calculator is accurate to 0.01 mm</Text>
@@ -73,7 +73,7 @@ export default class introScreen extends Component {
           <Button
                 text={Strings.hip}
                 visible={false}
-                containerStyle={[c.Button]}
+                containerStyle={[c.Button,]}
                 onPress={() => {navigation.navigate('hipScreen')}} />
                 </View>
         </LinearGradient>
