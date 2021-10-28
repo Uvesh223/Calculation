@@ -9,6 +9,7 @@ import {
 import { connect } from "react-redux";
 import Toast from 'react-native-simple-toast';
 import LinearGradient from 'react-native-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   AppRoot,
   TextInput,
@@ -32,17 +33,31 @@ export default class introScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // showRealApp: false, 
     }
   }
   componentDidMount() {
     Screen.OrientationChange(this);
-  }
+      AsyncStorage.getItem('first_time').then((value) => {
+          this.setState({ showRealApp: !!value, loading: false });
+        });      
+    }
 
   componentWillUnmount() {
     Screen.OrientationListener();
   }
+  onSkip = () => {
+    // After user skip the intro slides. Show real app through
+    // navigation or simply by controlling state
+    AsyncStorage.setItem('first_time', 'true').then(() => {
+      // this.setState({ showRealApp: true });
+        // this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('hipScreen');
+    });
+  };
   render() {
     const { navigation } = this.props;
+    console.log("intro realApp",this.state.showRealApp)
     return (
       <AppRoot>
         <LinearGradient
@@ -74,7 +89,7 @@ export default class introScreen extends Component {
                 text={Strings.hip}
                 visible={false}
                 containerStyle={[c.Button,]}
-                onPress={() => {navigation.navigate('hipScreen')}} />
+                onPress={() => {this.onSkip()}} />
                 </View>
         </LinearGradient>
       </AppRoot>

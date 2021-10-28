@@ -233,15 +233,15 @@ const dataSource = [
         id: '0',
         name: 'Introduction',
         icon: DrawerIcon.home,
-        navigation: 'introScreen',
-        v: true
+        navigation: 'IntroScreen',
+        v: false
     },
     {
         id: '1',
         name: 'Hip/Valley Cut',
         icon: DrawerIcon.calendar,
         navigation: 'hipScreen',
-        v: false
+        v: true
     },
     {
         id: '2',
@@ -251,9 +251,9 @@ const dataSource = [
         v: false
     },
     {
-        id: '2',
+        id: '3',
         name: 'About',
-        icon: DrawerIcon.growth,
+        icon: DrawerIcon.info,
         navigation: 'aboutScreen',
         v: false
     },

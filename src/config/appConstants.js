@@ -112,14 +112,15 @@ const ImageView = {
 }
 const DrawerIcon = {
   home: ('home-outline'),
-  calendar: ("calendar-outline"),
-  growth: ('trending-up'),
+  calendar: ("calculator"),
+  info: ('information'),
   history: ('history'),
   account: ('account-outline'),
   group: ('account-group-outline'),
   value: ('human-male-male'),
   shutdown: ('logout'),
   blockTime: ('timer-off-outline'),
+  info:('information-outline')
 }
 
 const Strings = {

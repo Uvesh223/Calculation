@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {
   Splash,
   Notification,
+  IntroScreen,
 } from "./Route";
 import DrawerScreen from "./Drawer";
 import { Provider } from "react-redux";
@@ -22,6 +23,11 @@ const AppNavigator = () => (
     <Stack.Screen
       name="Splash"
       component={Splash}
+      navigationOptions={{ headerShown: false, header: false }}
+    />
+     <Stack.Screen
+      name="IntroScreen"
+      component={IntroScreen}
       navigationOptions={{ headerShown: false, header: false }}
     />
     <Stack.Screen

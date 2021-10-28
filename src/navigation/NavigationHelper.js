@@ -5,14 +5,14 @@ const navigateAndReset =(routeName)=>{
       routes: [{name:routeName }],
     })
 }
-// const Login = CommonActions.reset({
-//   index: 0,
-//   routes: [{ name: "Signin" }],
-// })
+const intro = CommonActions.reset({
+  index: 0,
+  routes: [{ name: "intro" }],
+})
 const Home = CommonActions.reset({
   index: 0,
   routes: [{ name: "Home" }],
 })
 export  {
-  navigateAndReset,Home
+  navigateAndReset,Home,intro
 };
