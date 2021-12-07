@@ -97,9 +97,11 @@ export default class riseScreen extends Component {
                     ref={input => {
                       this.isRise = input;
                     }}
-                    onChangeText={(text) => this.setState({ rise: (text) },
+                    onChangeText={(text) => this.setState({ rise: text.replace(/[- #*;,.<>\{\}\[\]\\\/]/gi, '') }, () => {
+                    })}
+                    // onChangeText={(text) => this.setState({ rise: (text) },
                       // this.picthAscending()
-                    )}
+                    // )}
                     // editable={this.state.lock ? true : false}
                     placeholder="0"
                     placeholderTextColor='#000'
@@ -129,9 +131,11 @@ export default class riseScreen extends Component {
                     ref={input => {
                       this.isRun = input;
                     }}
-                    onChangeText={(text) => this.setState({ run: (text) }
+                    // onChangeText={(text) => this.setState({ run: (text) }
+                    onChangeText={(text) => this.setState({ run: text.replace(/[- #*;,.<>\{\}\[\]\\\/]/gi, '') }, () => {
+                    })}
                       // this.picthAscending()
-                    )}
+                    // )}
                     // editable={this.state.lock ? true : false}
                     placeholder="0"
                     placeholderTextColor='#000'
@@ -168,16 +172,25 @@ export default class riseScreen extends Component {
       </AppRoot>
     )
   }
+  radians_to_degrees(radians)
+{
+  let pi = Math.PI;
+  return radians * (180/pi);
+}
   picthAscehnding = () => {
     let run = this.state.run;
     let rise = +this.state.rise;
     // let picth = Math.cos(text2 * Math.PI / 180);
-    let picth =  run * rise;
-    let diff = this.state.coverInput / picth;
+    let picth =  rise / run;
+    let picth1 = picth.toFixed(5);
+    let pi = Math.PI;
+    // let data=(Math.atan(picth1)*this.radians_to_degrees);
+    let data =this.radians_to_degrees(Math.atan(picth)).toFixed(1);
     this.setState({
-      diffrence: diff.toFixed(2),
-      angleofCut: picth,
+      // diffrence: diff.toFixed(2),
+      angleofCut: data,
     })
+    // =DEGREES(ATAN(I19))
   }
   incrementCrise = () => {
     let count = +this.state.rise + 1;

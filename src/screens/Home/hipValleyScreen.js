@@ -39,8 +39,8 @@ export default class HipScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      coverInput: 762,
-      pitchInput: 10,
+      coverInput: 0,
+      pitchInput: 0,
       diffrence: 0,
       angleofCut: 0,
       measurement: 0,
@@ -90,7 +90,9 @@ export default class HipScreen extends Component {
 
   render() {
     const { navigation, loading, visible, data } = this.props;
-    // console.log("dataa=>", this.state.data)
+    console.log("diffrence=>", this.state.diffrence)
+    console.log("diffrence1=>", this.state.diffrence1)
+
     // console.log("defaultTab=>", this.state.defaultTab)
 
     return (
@@ -227,7 +229,7 @@ export default class HipScreen extends Component {
                       style={[c.input, { width: 60 }]}
                       keyboardType={"number-pad"}
                       editable={this.state.lock ? true : false}
-                      onChangeText={(text) => this.setState({ pitchInput: (text) }, () => {
+                      onChangeText={(text) => this.setState({ pitchInput: text.substr(0, text.indexOf('.') + 3) }, () => {
                       })}
                       ref={input => {
                         this.isPitch = input;
@@ -385,6 +387,7 @@ export default class HipScreen extends Component {
                   }]}
                   onPress={() => this.state.firstLInput != 0 ? this.loadMore() : null} />
                   :
+                null}
                     <Button
                       text={Strings.cal}
                       visible={false}
@@ -392,11 +395,10 @@ export default class HipScreen extends Component {
                         alignSelf: 'center',
                       }]}
                       onPress={() => this.state.firstLInput != 0 ? this.getvalue() : null} />
-                  }
                 </>
                 : this.state.defaultTab === 2 ?
                   <>
-                    {this.state.disData.length > 0 ? null :
+                    {/* {this.state.disData.length > 0 ? null : */}
                       <Button
                         text={Strings.cal}
                         visible={false}
@@ -404,7 +406,7 @@ export default class HipScreen extends Component {
                           alignSelf: 'center',
                         }]}
                         onPress={() => this.state.firstLInput != 0 ? this.getvalue() : null} />
-                    }
+                    {/* } */}
                   </>
                     : null}
                    
@@ -430,18 +432,33 @@ export default class HipScreen extends Component {
       </AppRoot>
     )
   }
+  radians_to_degrees(radians)
+  {
+    let pi = Math.PI;
+    return radians * (180/pi);
+  }
   picthAscehnding = () => {
     const { data } = this.state;
     let text2 = this.state.pitchInput;
     let picth = Math.cos(text2 * Math.PI / 180);
     let diff = this.state.coverInput / picth;
     let fl = this.state.firstLInput;
-    console.log("Ase=>", data)
+    let tan =  Math.tan(this.state.pitchInput * Math.PI / 180);
+    let tan1 = tan.toFixed(3);
+    let x = Math.SQRT2.toFixed(3);
+    let xy = x*x+tan1*tan1;
+    let xyz = xy.toFixed(5);
+    let squart = Math.sqrt(xyz).toFixed(3);
+    let mesure = squart*this.state.coverInput;
+    let rakeMesure = mesure.toFixed();
+    let angle =  diff.toFixed(2) / this.state.coverInput;
+    let angleCut =this.radians_to_degrees(Math.atan(angle)).toFixed(2);
     if (this.state.firstLInput != 0) {
       this.setState({
         diffrence: diff.toFixed(2),
-        angleofCut: picth.toFixed(10),
-      })
+        angleofCut: angleCut,
+        measurement: rakeMesure,
+    })
     }
   }
   picthDescending = () => {
@@ -450,11 +467,21 @@ export default class HipScreen extends Component {
     let picth = Math.cos(text2 * Math.PI / 180);
     let diff = this.state.coverInput / picth;
     let fl = this.state.firstLInput;
-    console.log("dis=>", disData)
+    let tan =  Math.tan(this.state.pitchInput * Math.PI / 180);
+    let tan1 = tan.toFixed(3);
+    let x = Math.SQRT2.toFixed(3);
+    let xy = x*x+tan1*tan1;
+    let xyz = xy.toFixed(5);
+    let squart = Math.sqrt(xyz).toFixed(3);
+    let mesure = squart*this.state.coverInput;
+    let rakeMesure = mesure.toFixed();
+    let angle =  diff.toFixed(2) / this.state.coverInput;
+    let angleCut =this.radians_to_degrees(Math.atan(angle)).toFixed(2);
     if (this.state.firstLInput != 0) {
       this.setState({
         diffrence: diff.toFixed(2),
-        angleofCut: picth.toFixed(10),
+        measurement: rakeMesure,
+        angleofCut: angleCut,
       })
     }
   }
@@ -519,6 +546,8 @@ export default class HipScreen extends Component {
 
   }
   getvalue = () => {
+    this.state.data=[];
+    this.state.disData=[];
     let input = this.state.pitchInput;
     let picth = Math.cos(input * Math.PI / 180);
     let diff = this.state.coverInput / picth;
@@ -529,11 +558,11 @@ export default class HipScreen extends Component {
       // plus  i with number
       const result = +fl + i;
       const result2 = +fl - i;
-      // if (result2 <= 0) { break; }
-      this.state.defaultTab === 1
-        ? this.state.data.push({ start: result, end: result + diff, checked: false, icon: 'square', })
+      let change = result + diff;
+      this.state.defaultTab === 1 
+         ? this.state.data.push({ start: result, end: result + diff, checked: false, icon: 'square', })
         : this.state.defaultTab === 2
-          ? result2 <0?null: this.state.disData.push({ start: result2, end: result2 - diff, checked: false, icon: 'square', }) : null
+          ? result2 < 0 ? null: this.state.disData.push({ start: result2, end: result2 - diff, checked: false, icon: 'square', }) : null
     }
     this.state.defaultTab === 1 ?
       this.picthAscehnding()

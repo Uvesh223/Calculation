@@ -106,8 +106,8 @@ sheetBox:{
   },
   hed:{
     borderRightWidth:1,
-    justifyContent:'flex-start',
-    alignItems:'flex-start',
+    justifyContent:'center',
+    alignItems:'center',
     borderColor:Colors.blueC,
     paddingVertical:5,
   },
