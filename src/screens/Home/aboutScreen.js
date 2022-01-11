@@ -84,21 +84,21 @@ export default class aboutScreen extends Component {
                   source={ImageView.hipValley}
                   style={{ height: Screen.hp('20%'), alignSelf: 'center', width: Screen.wp('70%') }} />
                 <View>
-                  <Text style={[c.normalText,{paddingVertical:0,marginBottom:5,fontSize: 17,}]}>Version: 1.0</Text>
+                  <Text style={[c.normalText,{paddingVertical:0,marginVertical:10,fontSize: 17,}]}>Version: 1.0</Text>
                 </View>
                 <TouchableOpacity onPress={() => Linking.openURL('https://bulletproofroofing.co.nz/')}>
                   <Text style={[c.normalText,{ color: 'blue',textDecorationLine:'underline',paddingVertical:0,fontSize: 17}]}>
                   https://bulletproofroofing.co.nz/</Text>
                 </TouchableOpacity>
                 <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                  <Text style={[c.normalText,{paddingVertical:0,marginVertical:5,fontSize: 17}]}>Email: paul@bulletproofroofing.co.nz</Text>
+                  <Text style={[c.normalText,{paddingVertical:0,marginVertical:12,fontSize: 17}]}>Email: paul@bulletproofroofing.co.nz</Text>
                 </View>
-                <Text style={[c.normalText,{paddingVertical:0,fontSize: 17}]}>
-                  Privacy policy:</Text>
-                <TouchableOpacity onPress={() => Linking.openURL('https://bulletproofroofing.co.nz/')}>
+                <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                <TouchableOpacity onPress={() => Linking.openURL('https://bulletproofroofing.co.nz/privacy.html/')}>
                   <Text style={[c.normalText,{ color: 'blue',textDecorationLine:'underline',paddingVertical:0,fontSize: 17}]}>
-                  https://bulletproofroofing.co.nz/privacy.html</Text>
+                  Privacy policy</Text>
                   </TouchableOpacity>
+                  </View>
               </View>
               <View>
               </View>

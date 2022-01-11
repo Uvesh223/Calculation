@@ -157,8 +157,8 @@ export default class riseScreen extends Component {
             </View>
             </View>
             <View style={[c.hednew,{marginVertical:20}]}>
-              <Text style={[c.normalText, { paddingVertical: 0 }]}>Accurate Angle</Text>
-              <Text style={[c.normalText, { paddingVertical: 0 }]} >{this.state.angleofCut}</Text>
+              {/* <Text style={[c.normalText, { paddingVertical: 0 }]}>A</Text> */}
+              <Text style={[c.normalText, { paddingVertical: 0 }]} >{`${this.state.angleofCut}°`}</Text>
             </View>
           </View>
           <View style={{paddingVertical:20}}>

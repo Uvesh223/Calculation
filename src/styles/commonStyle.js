@@ -55,6 +55,7 @@ const commonStyle = StyleSheet.create({
   mainCalView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    // width: Screen.wp('100%'),
   },
   calView: {
     flexDirection: 'row', 

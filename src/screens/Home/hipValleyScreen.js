@@ -90,10 +90,10 @@ export default class HipScreen extends Component {
 
   render() {
     const { navigation, loading, visible, data } = this.props;
-    console.log("diffrence=>", this.state.diffrence)
-    console.log("diffrence1=>", this.state.diffrence1)
+    console.log('data==>',this.state.data.length)
+    console.log('Dis data==>',this.state.disData.length)
+    console.log('visible==>',this.state.visible)
 
-    // console.log("defaultTab=>", this.state.defaultTab)
 
     return (
       <AppRoot>
@@ -174,11 +174,13 @@ export default class HipScreen extends Component {
                 />
               </View>
               <View style={c.mainCalView}>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center',width: Screen.wp('50%'), }}>
                   <Text style={c.normalText}>Sheet Cover</Text>
                   <Text style={c.subnormalText}> (mm)</Text>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: Screen.wp('45%') }}>
+
+
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center',width: Screen.wp('50%')}}>
                   <Text style={c.normalText}>Pitch</Text>
                   <Text style={c.subnormalText}> (degrees)</Text>
                 </View>
@@ -269,7 +271,8 @@ export default class HipScreen extends Component {
                       editable={this.state.lock ? true : false}
                       onChangeText={(text) => this.setState({ firstLInput: text.replace(/[- #*;,.<>\{\}\[\]\\\/]/gi, '') }, () => {
                       })}
-                      placeholder="Enter First Length"
+                      // placeholder="Enter First Length"
+                      placeholder="0"
                       placeholderTextColor='#000'
                       ref={input => {
                         this.isFirstL = input;
@@ -290,16 +293,16 @@ export default class HipScreen extends Component {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderWidth: 1, borderColor: Colors.blueC, borderRadius: 5 }}>
                   <View style={c.hed}>
                     <Text style={c.hedText}>Difference</Text>
-                    <Text style={c.hedText}>{this.state.diffrence}</Text>
+                    <Text style={c.hedText}>{`${this.state.diffrence} mm`}</Text>
                   </View>
                   <View style={c.hed}>
                     <Text style={c.hedText}>Rake Measurement</Text>
-                    <Text style={c.hedText}>{this.state.measurement}</Text>
+                    <Text style={c.hedText}>{`${this.state.measurement} mm`}</Text>
 
                   </View>
                   <View style={[c.hed, { borderRightWidth: 0, }]}>
                     <Text style={c.hedText}>Angle Of Cut</Text>
-                    <Text style={c.hedText}>{this.state.angleofCut}</Text>
+                    <Text style={c.hedText}>{`${this.state.angleofCut}°`}</Text>
                   </View>
                 </View>
               </View>
@@ -310,18 +313,45 @@ export default class HipScreen extends Component {
                   <Text style={[c.normalText, { paddingVertical: 0 }]}>Measurements below are center of overlap and</Text>
                   <Text style={[c.normalText, { paddingVertical: 0 }]}>underlap (sheet cover width apart)</Text>
                 </View>
-                {this.state.defaultTab==1? 
+                {this.state.defaultTab === 1 ?
+                    <Button
+                      text={Strings.cal}
+                      visible={false}
+                      containerStyle={[c.Button, {
+                        alignSelf: 'center',
+                      }]}
+                      onPress={() => this.state.coverInput > 0 ? this.getvalue() :
+                      alert('please enter sheet cover input greater than 0')
+                        } />
+                : this.state.defaultTab === 2 ?
+                  <>
+                    {/* {this.state.disData.length > 0 ? null : */}
+                      <Button
+                        text={Strings.cal}
+                        visible={false}
+                        containerStyle={[c.Button, {
+                          alignSelf: 'center',
+                        }]}
+                        onPress={() => this.state.coverInput > 0 ? this.getvalue() :
+                        alert('please enter sheet cover input greater than 0')
+
+                        } />
+                    {/* } */}
+                  </>
+                    : null}
+                {this.state.defaultTab==1?
                 <>
                 {this.state.data.slice(0,this.state.visible).map((item, index) => {
-                
+
                   return (
+
                     <View style={c.mainSheetView}>
                       <TouchableOpacity onPress={(id) => {
                         item.checked = !item.checked
                         this.picthAscehnding()
                       }}>
                         <Icon name={item.checked ? "check-square" : item.icon} size={25} color={item.checked ? Colors.green : Colors.grayPrimaryColor} />
-              
+
                       </TouchableOpacity>
                       <View>
                         <Text style={c.normalText}>Sheet {index + 1}</Text>
@@ -333,15 +363,15 @@ export default class HipScreen extends Component {
                         <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.end.toFixed()}</Text>
                       </View>
                     </View>
-                  )              
+                  )
                 })
               }
               </>
               :null}
-                {this.state.defaultTab==2? 
+                {this.state.defaultTab==2?
                 <>
-                {this.state.disData.slice(0,10).map((item, index) => {
-                
+                {this.state.disData.slice(0,this.state.visible).map((item, index) => {
+
                   return (
                     <View style={c.mainSheetView}>
                       <TouchableOpacity onPress={(id) => {
@@ -349,7 +379,7 @@ export default class HipScreen extends Component {
                         this.picthAscehnding()
                       }}>
                         <Icon name={item.checked ? "check-square" : item.icon} size={25} color={item.checked ? Colors.green : Colors.grayPrimaryColor} />
-              
+
                       </TouchableOpacity>
                       <View>
                         <Text style={c.normalText}>Sheet {index + 1}</Text>
@@ -361,7 +391,7 @@ export default class HipScreen extends Component {
                         <Text style={[c.normalText, { paddingVertical: 5 }]}>{item.end.toFixed()}</Text>
                       </View>
                     </View>
-                  )              
+                  )
                 })
               }
               </>
@@ -376,40 +406,30 @@ export default class HipScreen extends Component {
                   // onEndThreshold={0}
                 /> */}
               </View>
-              {this.state.defaultTab === 1 ?
-                <>
-                  {this.state.data.length > 0 ? 
+                  {this.state.defaultTab === 1 && this.state.data.length > 0 && this.state.data.length > this.state.visible ?
                   <Button
                   text={Strings.more}
                   visible={false}
                   containerStyle={[c.Button, {
                     alignSelf: 'center',
                   }]}
-                  onPress={() => this.state.firstLInput != 0 ? this.loadMore() : null} />
+                  onPress={() => this.state.coverInput > 0 ? this.loadMore() : null} />
                   :
-                null}
-                    <Button
-                      text={Strings.cal}
-                      visible={false}
-                      containerStyle={[c.Button, {
-                        alignSelf: 'center',
-                      }]}
-                      onPress={() => this.state.firstLInput != 0 ? this.getvalue() : null} />
-                </>
-                : this.state.defaultTab === 2 ?
-                  <>
-                    {/* {this.state.disData.length > 0 ? null : */}
-                      <Button
-                        text={Strings.cal}
-                        visible={false}
-                        containerStyle={[c.Button, {
-                          alignSelf: 'center',
-                        }]}
-                        onPress={() => this.state.firstLInput != 0 ? this.getvalue() : null} />
-                    {/* } */}
-                  </>
-                    : null}
-                   
+                  null}
+
+                    {this.state.defaultTab === 2 && this.state.disData.length > 0 && this.state.disData.length >= this.state.visible
+                    ?
+                  <Button
+                  text={Strings.more}
+                  visible={false}
+                  containerStyle={[c.Button, {
+                    alignSelf: 'center',
+                  }]}
+                  onPress={() => this.state.firstLInput > 0 ? this.loadMore() : null} />
+                  :
+                  null}
+
+
               {/* {this.state.showbutton ?
                 <View style={{ width: Screen.wp('100%'), alignItems: 'center' }}>
                 // <Button
@@ -453,13 +473,17 @@ export default class HipScreen extends Component {
     let rakeMesure = mesure.toFixed();
     let angle =  diff.toFixed(2) / this.state.coverInput;
     let angleCut =this.radians_to_degrees(Math.atan(angle)).toFixed(2);
-    if (this.state.firstLInput != 0) {
+    if (this.state.coverInput > 0) {
       this.setState({
         diffrence: diff.toFixed(2),
         angleofCut: angleCut,
         measurement: rakeMesure,
+        // visible:10,
     })
     }
+    // else{
+    //   alert('Please Enter Sheet Cover Value greater than 0')
+    // }
   }
   picthDescending = () => {
     const { disData } = this.state;
@@ -477,13 +501,16 @@ export default class HipScreen extends Component {
     let rakeMesure = mesure.toFixed();
     let angle =  diff.toFixed(2) / this.state.coverInput;
     let angleCut =this.radians_to_degrees(Math.atan(angle)).toFixed(2);
-    if (this.state.firstLInput != 0) {
+    if (this.state.coverInput > 0) {
       this.setState({
         diffrence: diff.toFixed(2),
         measurement: rakeMesure,
         angleofCut: angleCut,
       })
     }
+    // if(this.state.coverInput!==0 && disData.length==0){
+    //   alert('values are less than 0 or Minus')
+    // }
   }
   incrementC = () => {
     let count = +this.state.coverInput + 1;
@@ -559,15 +586,26 @@ export default class HipScreen extends Component {
       const result = +fl + i;
       const result2 = +fl - i;
       let change = result + diff;
-      this.state.defaultTab === 1 
+      this.state.defaultTab === 1
          ? this.state.data.push({ start: result, end: result + diff, checked: false, icon: 'square', })
         : this.state.defaultTab === 2
-          ? result2 < 0 ? null: this.state.disData.push({ start: result2, end: result2 - diff, checked: false, icon: 'square', }) : null
+          ? result2 - diff < 0 ?
+           null
+           : this.state.disData.push({ start: result2, end: result2 - diff, checked: false, icon: 'square', }) :
+            null
     }
+    this.setState({visible:10})
     this.state.defaultTab === 1 ?
+    this.state.coverInput==0 ?
+      alert('Please Enter Sheet Cover Value greater than 0')
+      :
       this.picthAscehnding()
       : this.state.defaultTab === 2 ?
-        this.picthDescending() : null
+      this.state.coverInput!==0 && this.state.disData.length==0 ?
+        alert('values are less than 0 or Minus')
+        :
+        this.picthDescending()
+        : null
   }
 
   loadMore = () => {
