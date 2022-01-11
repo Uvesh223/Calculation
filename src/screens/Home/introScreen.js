@@ -33,14 +33,14 @@ export default class introScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // showRealApp: false, 
+      // showRealApp: false,
     }
   }
   componentDidMount() {
     Screen.OrientationChange(this);
       AsyncStorage.getItem('first_time').then((value) => {
           this.setState({ showRealApp: !!value, loading: false });
-        });      
+        });
     }
 
   componentWillUnmount() {

@@ -321,7 +321,7 @@ export default class HipScreen extends Component {
                         alignSelf: 'center',
                       }]}
                       onPress={() => this.state.coverInput > 0 ? this.getvalue() :
-                      alert('please enter sheet cover input greater than 0')
+                      alert('Please enter sheet cover input greater than 0')
                         } />
                 : this.state.defaultTab === 2 ?
                   <>
@@ -333,8 +333,7 @@ export default class HipScreen extends Component {
                           alignSelf: 'center',
                         }]}
                         onPress={() => this.state.coverInput > 0 ? this.getvalue() :
-                        alert('please enter sheet cover input greater than 0')
-
+                        alert('Please enter sheet cover input greater than 0')
                         } />
                     {/* } */}
                   </>
@@ -602,7 +601,7 @@ export default class HipScreen extends Component {
       this.picthAscehnding()
       : this.state.defaultTab === 2 ?
       this.state.coverInput!==0 && this.state.disData.length==0 ?
-        alert('values are less than 0 or Minus')
+        alert('Values are less than 0 or Minus')
         :
         this.picthDescending()
         : null
